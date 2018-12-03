@@ -1,0 +1,39 @@
+﻿@model GestionToxicologica.Models.Denuncia
+
+
+@{
+    ViewBag.Title = "Denuncia";
+}
+
+<h2>Denuncia</h2>
+
+@using (Html.BeginForm("Denuncia", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Llene formulario para el ingreso de su denuncia</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Id_Comuna, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Id_Comuna, new List<SelectListItem>
+        {
+           new SelectListItem { Text="Santiago", Value="1"},
+           new SelectListItem { Text="Las Condes", Value="2"},
+           new SelectListItem { Text="La Florida", Value="3"},
+           new SelectListItem { Text="Quintero", Value="4"},        
+        })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Descripcion, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.Descripcion, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Ingresar Denuncia" />
+        </div>
+    </div>
+}
