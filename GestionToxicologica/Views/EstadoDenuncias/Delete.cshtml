@@ -1,0 +1,32 @@
+﻿@model GestionToxicologica.Models.EstadoDenuncia
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar Estado</h2>
+
+<h3>Esta seguro de eliminar el Estado?</h3>
+<div>
+    <h4>EstadoDenuncia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Estado)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver", "Index")
+        </div>
+    }
+</div>

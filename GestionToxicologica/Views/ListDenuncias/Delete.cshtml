@@ -1,0 +1,88 @@
+﻿@model GestionToxicologica.Models.Denuncia
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Esta seguro de eliminar?</h3>
+<div>
+    <h4>Denuncia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Comuna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comuna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Comuna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Comuna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Ingreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Ingreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Cierre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Cierre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorreoUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorreoUsuario)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Volver", "Index")
+        </div>
+    }
+</div>

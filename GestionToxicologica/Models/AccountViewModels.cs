@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
 namespace GestionToxicologica.Models
 {
@@ -78,7 +80,7 @@ namespace GestionToxicologica.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirmar contraseña")]
-        [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
+        [System.Web.Mvc.Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
         [Display(Name = "Nombre:")]
         public string Name { get; set; }
@@ -88,9 +90,13 @@ namespace GestionToxicologica.Models
 
         [Display(Name = "Apellido Materno:")]
         public string ApellidoMaterno { get; set; }
+        [Display(Name="Numero Telefonico: ")]
+        public string PhoneNumber { get; set; }
 
-        [Display(Name = "Sexo:")]
-        public string Sexo { get; set; }
+        [Display(Name = "Sexo: ")]
+        public int ID_Sex { get; set; }
+        public Sex Sexo { get; set; }
+        public List<Sex> Sexos { get; set; }
 
         [Display(Name = "Fecha Nacimiento:")]
         [DataType(DataType.Date)]
@@ -113,7 +119,7 @@ namespace GestionToxicologica.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirmar contraseña")]
-        [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
+        [System.Web.Mvc.Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }

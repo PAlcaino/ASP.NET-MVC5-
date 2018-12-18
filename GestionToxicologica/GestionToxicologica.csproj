@@ -175,7 +175,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationUsersController.cs" />
+    <Compile Include="Controllers\ComunasController.cs" />
+    <Compile Include="Controllers\EstadoDenunciasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ListDenunciasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -188,11 +191,14 @@
     <Compile Include="Migrations\201812032046453_Script1.Designer.cs">
       <DependentUpon>201812032046453_Script1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812171420390_denunciasContext.cs" />
+    <Compile Include="Migrations\201812171420390_denunciasContext.Designer.cs">
+      <DependentUpon>201812171420390_denunciasContext.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Comuna.cs" />
     <Compile Include="Models\Denuncia.cs" />
-    <Compile Include="Models\Detalle_Denuncia.cs" />
     <Compile Include="Models\EstadoDenuncia.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -264,6 +270,23 @@
     <Content Include="Views\ApplicationUsers\Details.cshtml" />
     <Content Include="Views\ApplicationUsers\Edit.cshtml" />
     <Content Include="Views\ApplicationUsers\Index.cshtml" />
+    <Content Include="Views\ListDenuncias\Create.cshtml" />
+    <Content Include="Views\ListDenuncias\Delete.cshtml" />
+    <Content Include="Views\ListDenuncias\Details.cshtml" />
+    <Content Include="Views\ListDenuncias\Edit.cshtml" />
+    <Content Include="Views\ListDenuncias\Index.cshtml" />
+    <Content Include="Views\Comunas\Create.cshtml" />
+    <Content Include="Views\Comunas\Delete.cshtml" />
+    <Content Include="Views\Comunas\Details.cshtml" />
+    <Content Include="Views\Comunas\Edit.cshtml" />
+    <Content Include="Views\Comunas\Index.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\EstadoDenuncias\Create.cshtml" />
+    <Content Include="Views\EstadoDenuncias\Delete.cshtml" />
+    <Content Include="Views\EstadoDenuncias\Details.cshtml" />
+    <Content Include="Views\EstadoDenuncias\Edit.cshtml" />
+    <Content Include="Views\EstadoDenuncias\Index.cshtml" />
+    <Content Include="Views\ListDenuncias\Gracias.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -287,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812032046453_Script1.resx">
       <DependentUpon>201812032046453_Script1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812171420390_denunciasContext.resx">
+      <DependentUpon>201812171420390_denunciasContext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

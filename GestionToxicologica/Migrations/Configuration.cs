@@ -9,7 +9,7 @@ namespace GestionToxicologica.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "GestionToxicologica.Models.ApplicationDbContext";
         }
 

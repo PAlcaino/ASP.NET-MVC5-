@@ -4,9 +4,12 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using GestionToxicologica.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace GestionToxicologica.Controllers
 {
@@ -38,7 +41,11 @@ namespace GestionToxicologica.Controllers
         // GET: ApplicationUsers/Create
         public ActionResult Create()
         {
-            return View();
+            var db = new ApplicationDbContext();
+            var user = new RegisterViewModel();
+            user.Sexos = db.Sexes.ToList();
+
+            return View(user);
         }
 
         // POST: ApplicationUsers/Create
@@ -82,6 +89,36 @@ namespace GestionToxicologica.Controllers
         {
             if (ModelState.IsValid)
             {
+                using (var context = new ApplicationDbContext())
+                {
+                    var roleStore = new RoleStore<IdentityRole>(context);
+                    var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+                    var userStore = new UserStore<ApplicationUser>(context);
+                    var userManager = new UserManager<ApplicationUser>(userStore);
+
+                    var oldRoleId = userManager.GetRoles(applicationUser.Id).ToArray();                   
+
+                    if (applicationUser.isExpert)
+                    {      
+                        if (oldRoleId.Contains("ExpertUser"))
+                        {
+                            userManager.RemoveFromRoles(applicationUser.Id, oldRoleId);
+                            userManager.AddToRole(applicationUser.Id, "ExpertUser");
+                        }                        
+                    }
+                    else
+                    {
+                        if(oldRoleId.Contains("User"))
+                        {
+                            userManager.RemoveFromRoles(applicationUser.Id, oldRoleId);
+                            userManager.AddToRole(applicationUser.Id, "User");
+                        }
+                        
+                    }
+                    
+                }
+               
                 db.Entry(applicationUser).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

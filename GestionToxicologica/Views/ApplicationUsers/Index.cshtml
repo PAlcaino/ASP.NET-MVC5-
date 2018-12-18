@@ -4,10 +4,10 @@
     ViewBag.Title = "Usuarios";
 }
 
-<h2>Index</h2>
+<h2>Usuarios</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Agregar Usuario", "Create")
 </p>
 <table class="table">
     <tr>
@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.ApellidoMaterno)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Sexo)
+            @Html.DisplayNameFor(model => model.Id_Sex)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FechaNacimiento)
@@ -30,13 +30,10 @@
             @Html.DisplayNameFor(model => model.Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.UserName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TwoFactorEnabled)
+            @Html.Display("Acciones")
         </th>
         <th></th>
     </tr>
@@ -53,17 +50,14 @@
             @Html.DisplayFor(modelItem => item.ApellidoMaterno)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Sexo)
+            @Html.DisplayFor(modelItem => item.Id_Sex)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FechaNacimiento)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Email)
-        </td>                
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>       
+        </td>                     
         <td>
             @Html.DisplayFor(modelItem => item.UserName)
         </td>

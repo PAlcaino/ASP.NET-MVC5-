@@ -1,0 +1,47 @@
+﻿@model GestionToxicologica.Models.ConsultaDenunciaModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Denuncia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreComuna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreComuna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>     
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaIngreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaIngreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>    
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Volver", "Index")
+</p>

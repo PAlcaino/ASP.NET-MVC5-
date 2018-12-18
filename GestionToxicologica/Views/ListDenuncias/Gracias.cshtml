@@ -1,0 +1,12 @@
+﻿@model GestionToxicologica.Models.Denuncia
+
+@{
+    ViewBag.Title = "Gracias";
+}
+
+
+<div class="alert alert-success" role="alert">
+    <h1>Gracias @Model.CorreoUsuario tu denuncia fue ingresada a la fecha de @Model.Fecha_Ingreso.ToShortDateString()</h1>
+    <p>El numero de seguimiento es @Model.Id_denuncia .</p>
+    <p>@Html.ActionLink("Volver","Index","Home")</p>
+</div>

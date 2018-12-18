@@ -141,15 +141,11 @@ namespace GestionToxicologica.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            List<SelectListItem> lst = new List<SelectListItem>();
+            var db = new ApplicationDbContext();
+            var user = new RegisterViewModel();
+            user.Sexos = db.Sexes.ToList();
 
-            lst.Add(new SelectListItem() { Text = "Hombre", Value = "1" });
-            lst.Add(new SelectListItem() { Text = "Mujer", Value = "2" });
-
-
-            ViewBag.Opciones = lst;
-
-            return View();
+            return View(user);
         }
 
         //
@@ -171,7 +167,7 @@ namespace GestionToxicologica.Controllers
                         ApellidoMaterno = model.ApellidoMaterno,
                         ApellidoPaterno = model.ApellidoPaterno,
                         FechaNacimiento = model.FechaNacimiento,
-                        Sexo = model.Sexo
+                        Id_Sex = model.ID_Sex
                     };
                     var result = await UserManager.CreateAsync(user, model.Password);
 

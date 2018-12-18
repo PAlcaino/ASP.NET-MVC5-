@@ -28,10 +28,37 @@
                         {
                             if (User.IsInRole("Admin"))
                             {
-                                @Html.ActionLink("Usuarios","Index", "ApplicationUsers")
+                                @Html.ActionLink("Usuarios", "Index", "ApplicationUsers")
                             }
                         }
-                     </li>
+                    </li>
+                    <li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Admin") || User.IsInRole("ExpertUser"))
+                            {
+                                @Html.ActionLink("Denuncias", "Index", "ListDenuncias")
+                            }
+                        }
+                    </li>
+                    <li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Comunas", "Index", "Comunas")
+                            }
+                        }
+                    </li>
+                    <li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Estados", "Index", "EstadoDenuncias")
+                            }
+                        }
+                    </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
